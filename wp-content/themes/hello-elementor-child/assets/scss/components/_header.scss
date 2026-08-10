@@ -1,0 +1,35 @@
+.site-header {
+  .site-navigation {
+    ul.menu {
+      gap: 24px;
+      @media screen and (min-width: 1600px) {
+        gap: 30px;
+      }
+      li {
+        a {
+          display: block;
+          padding: 12px 16px;
+          font-weight: 400;
+          border: 1px solid transparent;
+          font-size: 14px;
+          transition:
+            background-color var(--hec-transition),
+            border-color var(--hec-transition),
+            border-radius var(--hec-transition);
+          @media screen and (min-width: 1600px) {
+            font-size: 18px;
+            padding: 13px 24px;
+          }
+        }
+        &.current-menu-item,
+        &:hover {
+          a {
+            background-color: var(--e-global-color-f85517e, #1a1a1a);
+            border-color: var(--e-global-color-f97d0e6, #1f1f1f);
+            border-radius: 74px;
+          }
+        }
+      }
+    }
+  }
+}

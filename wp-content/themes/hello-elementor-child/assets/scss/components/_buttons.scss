@@ -1,0 +1,31 @@
+@use '../abstracts/mixins';
+
+.hec-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.75rem;
+	padding: 0.625rem 1rem;
+	border: 1px solid transparent;
+	border-radius: var(--hec-radius);
+	background: var(--hec-color-primary);
+	color: #fff;
+	font: inherit;
+	font-weight: 600;
+	line-height: 1.25;
+	text-decoration: none;
+	transition: background-color var(--hec-transition), transform var(--hec-transition);
+}
+
+.hec-button:hover {
+	background: var(--hec-color-primary-hover);
+	color: #fff;
+}
+
+.hec-button:focus-visible {
+	@include mixins.focus-ring;
+}
+
+.hec-button:active {
+	transform: translateY(1px);
+}
