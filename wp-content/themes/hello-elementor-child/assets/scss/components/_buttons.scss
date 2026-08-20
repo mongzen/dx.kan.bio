@@ -1,31 +1,53 @@
-@use '../abstracts/mixins';
+@use "../abstracts/mixins";
 
 .hec-button {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 2.75rem;
-	padding: 0.625rem 1rem;
-	border: 1px solid transparent;
-	border-radius: var(--hec-radius);
-	background: var(--hec-color-primary);
-	color: #fff;
-	font: inherit;
-	font-weight: 600;
-	line-height: 1.25;
-	text-decoration: none;
-	transition: background-color var(--hec-transition), transform var(--hec-transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--hec-radius);
+  background: var(--hec-color-primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition:
+    background-color var(--hec-transition),
+    transform var(--hec-transition);
 }
 
 .hec-button:hover {
-	background: var(--hec-color-primary-hover);
-	color: #fff;
+  background: var(--hec-color-primary-hover);
+  color: #fff;
 }
 
 .hec-button:focus-visible {
-	@include mixins.focus-ring;
+  @include mixins.focus-ring;
 }
 
 .hec-button:active {
-	transform: translateY(1px);
+  transform: translateY(1px);
+}
+
+.elementor-button-link {
+  .elementor-button-content-wrapper {
+    align-items: center;
+    text-align: center;
+  }
+  //   .elementor-button-icon {
+  //     background-color: var(--e-global-color-f85517e, #1a1a1a);
+  //     padding: 6px 14px;
+  //     border-radius: 64px;
+  //     height: 36px;
+  //     width: 52px;
+  //     justify-content: center;
+  //   }
+}
+
+.btn-view-project {
+  left: auto !important;
+  transform: translateY(50%);
 }

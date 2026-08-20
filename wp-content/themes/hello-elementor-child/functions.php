@@ -32,13 +32,30 @@ add_action( 'after_setup_theme', 'hello_elementor_child_setup' );
  * @return void
  */
 function hello_elementor_child_enqueue_assets() {
-	$custom_css_path = HELLO_ELEMENTOR_CHILD_PATH . '/assets/css/style.css';
-	$custom_js_path  = HELLO_ELEMENTOR_CHILD_PATH . '/assets/js/main.js';
+	$custom_css_path    = HELLO_ELEMENTOR_CHILD_PATH . '/assets/css/style.css';
+	$custom_js_path     = HELLO_ELEMENTOR_CHILD_PATH . '/assets/js/main.js';
+	$bootstrap_css_path = HELLO_ELEMENTOR_CHILD_PATH . '/assets/libs/css/bootstrap.min.css';
+	$bootstrap_js_path  = HELLO_ELEMENTOR_CHILD_PATH . '/assets/libs/js/bootstrap.bundle.min.js';
+
+	wp_enqueue_style(
+		'bootstrap',
+		HELLO_ELEMENTOR_CHILD_URL . '/assets/libs/css/bootstrap.min.css',
+		[],
+		file_exists( $bootstrap_css_path ) ? filemtime( $bootstrap_css_path ) : HELLO_ELEMENTOR_CHILD_VERSION
+	);
+
+	wp_enqueue_script(
+		'bootstrap',
+		HELLO_ELEMENTOR_CHILD_URL . '/assets/libs/js/bootstrap.bundle.min.js',
+		[],
+		file_exists( $bootstrap_js_path ) ? filemtime( $bootstrap_js_path ) : HELLO_ELEMENTOR_CHILD_VERSION,
+		true
+	);
 
 	wp_enqueue_style(
 		'hello-elementor-child',
 		get_stylesheet_uri(),
-		[ 'hello-elementor', 'hello-elementor-theme-style' ],
+		[ 'hello-elementor', 'hello-elementor-theme-style', 'bootstrap' ],
 		HELLO_ELEMENTOR_CHILD_VERSION
 	);
 
@@ -53,7 +70,7 @@ function hello_elementor_child_enqueue_assets() {
 		wp_enqueue_script(
 			'hello-elementor-child',
 			HELLO_ELEMENTOR_CHILD_URL . '/assets/js/main.js',
-			[],
+			[ 'bootstrap' ],
 			filemtime( $custom_js_path ),
 			true
 		);

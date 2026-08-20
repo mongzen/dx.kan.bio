@@ -1,10 +1,21 @@
 // Main SCSS entry point. Keep imports ordered from generic to specific.
-@use 'abstracts/variables';
-@use 'abstracts/mixins';
-@use 'base/base';
-@use 'base/typography';
-@use 'layout/container';
-@use 'components/buttons';
-@use 'components/forms';
-@use 'components/heading';
-@use 'components/header';
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "base/base";
+@use "base/typography";
+@use "layout/container";
+@use "components/buttons";
+@use "components/forms";
+@use "components/heading";
+@use "components/header";
+
+.e-n-accordion {
+  &-item-title-icon {
+    background-color: var(--e-global-color-f85517e, #1a1a1a);
+    aspect-ratio: 1 / 1;
+    padding: 12px;
+    border-radius: 100px;
+    width: 52px;
+    height: 52px;
+  }
+}
